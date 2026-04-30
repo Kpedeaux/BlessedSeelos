@@ -686,7 +686,7 @@ hr {
 .welcome__media img {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  aspect-ratio: 3/4;
+  aspect-ratio: 3/2;
   object-fit: cover;
   width: 100%;
 }
