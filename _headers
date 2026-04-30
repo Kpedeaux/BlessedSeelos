@@ -15,13 +15,17 @@
 /assets/icons/*
   Cache-Control: public, max-age=31536000, immutable
 
-# CSS / JS — moderate cache, will revalidate on deploy
+# CSS / JS — short edge cache so deploys propagate within minutes.
+# Bump the ?v= query in the HTML <link>/<script> tags for instant invalidation.
 /assets/css/*
-  Cache-Control: public, max-age=86400, must-revalidate
+  Cache-Control: public, max-age=300, must-revalidate
 
 /assets/js/*
-  Cache-Control: public, max-age=86400, must-revalidate
+  Cache-Control: public, max-age=300, must-revalidate
 
-# HTML — short cache so updates are seen quickly
+# HTML — very short cache so site updates are visible quickly
 /*.html
-  Cache-Control: public, max-age=600, must-revalidate
+  Cache-Control: public, max-age=120, must-revalidate
+
+/
+  Cache-Control: public, max-age=120, must-revalidate
