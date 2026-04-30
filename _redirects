@@ -1,44 +1,32 @@
-# Cloudflare Pages — redirects & rewrites.
-# Order matters: specific rules first, generic later.
-# 200 = rewrite (URL stays clean, file from target is served).
-# 301 = real permanent redirect (browser URL updates).
+# Cloudflare Pages — redirects.
+# IMPORTANT: '#' in this file is a comment marker. Do NOT use #anchor in destinations.
+# Cloudflare Pages handles clean URLs automatically (/staff serves staff.html).
+# Do NOT add explicit /staff /staff.html 200 rules — they fight the built-in handler.
 
-# --- Clean URLs (rewrites — URL stays /staff, content comes from /staff.html) ---
-/staff          /staff.html         200
-/history        /history.html       200
-/sacraments     /sacraments.html    200
-/ministries     /ministries.html    200
-/visit          /visit.html         200
-/mass-times     /mass-times.html    200
+# --- Legacy eCatholic URLs → new pages (default 301) ---
+/mission-statement                /
+/pastors-message                  /staff
+/our-parish                       /history
+/coat-of-arms                     /history
+/parish-registration              /visit
 
-# --- Legacy eCatholic URLs → new pages (real 301 for SEO) ---
-/mission-statement                /#welcome                     301
-/pastors-message                  /staff.html                   301
-/our-parish                       /history.html                 301
-/coat-of-arms                     /history.html                 301
-/parish-registration              /visit.html                   301
+/baptisms                         /sacraments
+/confirmation                     /sacraments
+/eucharist                        /sacraments
+/marriage                         /sacraments
+/death-funerals                   /sacraments
+/confessions                      /mass-times
+/rcia                             /sacraments
+/vacation-bible-school            /ministries
 
-/baptisms                         /sacraments.html#baptism      301
-/confirmation                     /sacraments.html#confirmation 301
-/eucharist                        /sacraments.html#eucharist    301
-/marriage                         /sacraments.html#marriage     301
-/death-funerals                   /sacraments.html#funerals     301
-/confessions                      /mass-times.html#confession   301
-/rcia                             /sacraments.html#rcia         301
-/vacation-bible-school            /ministries.html#formational  301
+/all-ministries                   /ministries
+/altar-society                    /ministries
+/legion-of-mary                   /ministries
+/youth-and-young-adult-ministry   /ministries
+/knights-of-peter-claver          /ministries
+/st-gerard-community-for-the-deaf /ministries
+/neocatecumenal-way               /ministries
+/e-l-i                            /ministries
 
-/all-ministries                   /ministries.html              301
-/altar-society                    /ministries.html#liturgical   301
-/legion-of-mary                   /ministries.html#formational  301
-/youth-and-young-adult-ministry   /ministries.html#formational  301
-/knights-of-peter-claver          /ministries.html#service      301
-/st-gerard-community-for-the-deaf /ministries.html#communities  301
-/neocatecumenal-way               /ministries.html#communities  301
-/e-l-i                            /ministries.html#communities  301
-
-/150-years-home                   /history.html                 301
-/parish-history-book              /history.html                 301
-
-# NOTE: do NOT add a /* catch-all here. Cloudflare Pages automatically
-# serves /404.html when no file matches — adding /* would shadow the
-# clean-URL rewrites above and break /staff, /history, etc.
+/150-years-home                   /history
+/parish-history-book              /history
