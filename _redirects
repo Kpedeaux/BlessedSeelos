@@ -1,0 +1,34 @@
+# Cloudflare Pages — redirects
+# Map common eCatholic legacy URLs to their new homes so search-engine traffic still lands.
+
+/mission-statement     /#welcome           301
+/pastors-message       /staff.html         301
+/staff                 /staff.html         301
+/our-parish            /history.html       301
+/coat-of-arms          /history.html       301
+/parish-registration   /visit.html#contact 301
+
+/baptisms              /sacraments.html#baptism      301
+/confirmation          /sacraments.html#confirmation 301
+/eucharist             /sacraments.html#eucharist    301
+/marriage              /sacraments.html#marriage     301
+/death-funerals        /sacraments.html#funerals     301
+/confessions           /mass-times.html#confession   301
+/rcia                  /sacraments.html#rcia         301
+/vacation-bible-school /ministries.html#formational  301
+
+/all-ministries        /ministries.html             301
+/altar-society         /ministries.html#liturgical  301
+/legion-of-mary        /ministries.html#formational 301
+/youth-and-young-adult-ministry /ministries.html#formational 301
+/knights-of-peter-claver /ministries.html#service   301
+/st-gerard-community-for-the-deaf /ministries.html#communities 301
+/neocatecumenal-way    /ministries.html#communities 301
+/e-l-i                 /ministries.html#communities 301
+
+/150-years-home        /history.html               301
+/parish-history-book   /history.html               301
+
+# SPA-style fallback (Cloudflare Pages serves /404.html automatically on 404,
+# but adding this makes the behavior explicit)
+/*    /404.html    404
